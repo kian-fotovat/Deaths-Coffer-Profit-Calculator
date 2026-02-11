@@ -113,8 +113,8 @@ def main():
         max_val_default = max_col_val
 
         col1, col2 = st.sidebar.columns(2)
-        min_val = col1.number_input("Min", min_value=min_col_val, max_value=max_col_val, value=min_val_default, key=f"min_{column_name}")
-        max_val = col2.number_input("Max", min_value=min_col_val, max_value=max_col_val, value=max_val_default, key=f"max_{column_name}")
+        min_val = col1.number_input("Min", value=min_val_default, key=f"min_{column_name}")
+        max_val = col2.number_input("Max", value=max_val_default, key=f"max_{column_name}")
 
         return df[(df[column_name] >= min_val) & (df[column_name] <= max_val)]
 
