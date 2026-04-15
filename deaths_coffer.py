@@ -152,10 +152,10 @@ def main():
         if col_name in df_display.columns:
             timestamp = pd.to_datetime(df_display[col_name], errors="coerce")
             try:
-                converted_timestamps = timestamp.dt.tz_convert("US/Central")
+                converted_timestamps = timestamp.dt.tz_convert("America/Chicago")
             except TypeError:
                 converted_timestamps = timestamp.dt.tz_localize("UTC")
-                converted_timestamps = converted_timestamps.dt.tz_convert("US/Central")
+                converted_timestamps = converted_timestamps.dt.tz_convert("America/Chicago")
             df_display[col_name] = converted_timestamps.dt.strftime("%m/%d/%Y, %I:%M %p")
 
     # Define numeric columns using their original names
